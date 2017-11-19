@@ -1,0 +1,63 @@
+{% extends "base2.html" %}
+
+    {% block content %}
+		<form action = "" method="POST">
+			<div class="body">
+				<h1>Experience</h1>
+				<table id="mainTable" class="table table-striped">
+					<tr>
+						<th>Select</th>
+						<th>Designation</th>
+						<th>Company</th>
+						<th>Duration</th>
+					</tr>
+					{% if experience %}
+						{% for i in experience %}
+							<tr>
+								<td><input type="checkbox"/></td>
+								<td><input type="text" value="{{ i.Designation }}" /></td>
+                				<td><input type="text" value="{{ i.Company }}" /></td>
+                				<td><input type="text" value="{{ i.Duration }}" /></td>
+							</tr>
+						{% endfor %}
+        			{% endif %}
+				</table>
+			</div>
+			{% csrf_token %}
+			<input type="text" name="count"/>
+			<input type="button" value="Set Data" class="btn btn-primary" onclick="SetData2('mainTable')" />
+			<input type="button" value="Add Row" class="btn btn-primary" onclick="addRow2('mainTable')" />
+			<input type="button" value="Delete Row" class="btn btn-primary" onclick="deleteRow('mainTable')" />
+			<div class="body">
+				<h1>Awards</h1>
+				<table id="award" class="table table-striped">
+					<tr>
+						<th>Select</th>
+						<th>Title</th>
+						<th>Date</th>
+						<th>Issuer</th>
+						<th>Description</th>
+					</tr>
+					{% if awards %}
+						{% for i in awards %}
+							<tr>
+								<td><input type="checkbox"/></td>
+								<td><input type="text" value="{{ i.Title }}" /></td>
+                				<td><input type="text" value="{{ i.Date }}" /></td>
+                				<td><input type="text" value="{{ i.Issuer }}" /></td>
+                				<td><input type="text" value="{{ i.Description }}" /></td>
+							</tr>
+						{% endfor %}
+        			{% endif %}
+				</table>
+			</div>
+			{% csrf_token %}
+			<input type="text" name="counta"/>
+			<input type="button" value="Set Data" class="btn btn-primary" onclick="SetData5('award')" />
+			<input type="button" value="Add Row" class="btn btn-primary" onclick="addRow5('award')" />
+			<input type="button" value="Delete Row" class="btn btn-primary" onclick="deleteRow('award')" />
+			<div>
+				<input type="submit" value="Save All" class="btn btn-primary"/>
+			</div>
+		</form>
+    {% endblock %}

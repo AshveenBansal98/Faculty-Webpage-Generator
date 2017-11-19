@@ -1,0 +1,33 @@
+{% extends "base2.html" %}
+
+	{% block content %}
+		<form action = "" method="POST">
+			<div class="body">
+				<h1>Teaching</h1>
+				<table id="mainTable" class="table table-striped">
+					<tr>
+						<th>Select</th>
+						<th>Institute</th>
+						<th>Course</th>
+						<th>Duration</th>
+					</tr>
+					{% if teaching %}
+						{% for i in teaching %}
+							<tr>
+								<td><input type="checkbox"/></td>
+								<td><input type="text" value="{{ i.Institute }}" /></td>
+                				<td><input type="text" value="{{ i.Course }}" /></td>
+                				<td><input type="text" value="{{ i.Duration }}" /></td>
+							</tr>
+						{% endfor %}
+        			{% endif %}
+				</table>
+			</div>
+			{% csrf_token %}
+			<input type="text" name="count"/>
+			<input type="button" value="Set Data" class="btn btn-primary" onclick="SetData2('mainTable')" />
+			<input type="button" value="Add Row" class="btn btn-primary" onclick="addRow2('mainTable')" />
+			<input type="button" value="Delete Row" class="btn btn-primary" onclick="deleteRow('mainTable')" />
+			<input type="submit" value="Save" style="float: right" class="btn btn-primary"/>
+		</form>
+	{% endblock %}

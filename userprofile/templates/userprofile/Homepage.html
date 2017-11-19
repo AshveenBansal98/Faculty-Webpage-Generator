@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<h1>{{ Department }}</h1>
+{% for required_object in Departmentwise_list  %}
+    <hr>
+    <a href="{% url 'userprofile:profile_about_us' required_object.username %}"><strong>{{ required_object.username.get_full_name }}</strong></a>
+    <p>{{ required_object.Departmental_post }}</p>
+    <p> <strong>Research Interest : </strong>{{ required_object.Research_interest }}</p>
+    <p> <strong>eMail :</strong>{{ required_object.username }} @ iitg.ernet.in</p>
+    <p><strong>Phone :</strong>{{ required_object.phone }}</p>
+    <p><strong>Room no :</strong>{{ required_object.Room_no }}</p>
+
+{% endfor %}
+
+{% endblock %}

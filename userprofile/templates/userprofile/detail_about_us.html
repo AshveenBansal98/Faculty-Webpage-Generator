@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+
+<h3>About me:</h3><br>
+	<div class="col-md-12">
+
+	<div class="col-md-3">
+		<figure>
+		<img src="/cseweb/automation/myprofilepic?statusCode=6c154a1c0ab781176e7b73073db1b087&pictureCode=santosh_biswa" alt={{ about_us.username.get_full_name }} height="150" width="150">
+		</figure>
+	</div>
+
+	<div class="col-md-3">
+	<label>{{ about_us.username.get_full_name }}</label>
+	<p>{{ about_us.Departmental_post }}, Department of {{ about_us.Department }}<br />IIT Guwahati, Guwahati - 781039<br />Assam, India</p>
+	</div>
+
+	<div class="col-md-3">
+		<label>Office</label>
+		<p>Room No.: {{ about_us.Room_no }}<br />Phone: {{about_us.phone}} <br />Email: {{	about_us.username }}@iitg.ernet.in</p>
+	</div>
+
+</div>
+<br>
+<br>
+<h3>Research Interest:</h3><br>
+ <p>{{ about_us.Research_interest }}</p>
+<br>
+<br>
+<h3>primary Research group</h3>
+<p> {{ about_us.primary_Research_group }}</p>
+
+<br>
+
+{% if about_us.username == user %}
+		<a href="{% url 'userprofile:profile_about_us_edit' user.username %}" class="btn btn-primary">Edit</a>
+{% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for i in projecting %}
+  <p>{{ i.Topic }}</p>
+{% endfor %}
+<a href="http://127.0.0.1:8000/profile/projecting/add">Add</a>
+{% endblock %}

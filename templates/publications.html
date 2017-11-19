@@ -1,0 +1,64 @@
+{% extends "base2.html" %}
+
+    {% block content %}
+    	<form action = "" method="POST">
+			<div class="body">
+        		<h1>Publications</h1>
+				<table id="mainTable" class="table table-striped">
+					<tr>
+						<th>Select</th>
+						<th>Title</th>
+						<th>URL</th>
+						<th>Year</th>
+						<th>Citations</th>
+						<th>Abstract</th>
+					</tr>
+					{% if publications %}
+						{% for i in publications %}
+							<tr>
+								<td><input type="checkbox"/></td>
+								<td><input type="text" style="width: 250px" value="{{ i.Title }}" /></td>
+                				<td><input type="text" style="width: 180px" value="{{ i.URL }}" /></td>
+                				<td><input type="text" style="width: 80px" value="{{ i.Year }}" /></td>
+                				<td><input type="text" style="width: 100px" value="{{ i.Citations }}" /></td>
+                				<td><input type="text" style="width: 200px" value="{{ i.Abstract }}" /></td>
+							</tr>
+						{% endfor %}
+        			{% endif %}
+        		</table>
+        	</div>
+        	{% csrf_token %}
+			<input type="text" name="count"/>
+			<input type="button" value="Set Data" class="btn btn-primary" onclick="SetData3('mainTable')" />
+			<input type="button" value="Add Row" class="btn btn-primary" onclick="addRow3('mainTable')" />
+			<input type="button" value="Delete Row" class="btn btn-primary" onclick="deleteRow('mainTable')" />
+        	<div class="body">
+        		<h1>Projects</h1>
+        		<table id="project" class="table table-striped">
+        			<tr>
+						<th>Topic</th>
+						<th>Details</th>
+						<th>Year</th>
+					</tr>
+        			{% if projecting %}
+						{% for i in projecting %}
+							<tr>
+								<td><input type="checkbox"/></td>
+								<td><input type="text" value="{{ i.Topic }}" /></td>
+                				<td><input type="text" value="{{ i.Details }}" /></td>
+                				<td><input type="text" value="{{ i.Year }}" /></td>
+							</tr>
+						{% endfor %}
+        			{% endif %}
+				</table>
+			</div>
+			{% csrf_token %}
+			<input type="text" name="countp"/>
+			<input type="button" value="Set Data" class="btn btn-primary" onclick="SetData4('project')" />
+			<input type="button" value="Add Row" class="btn btn-primary" onclick="addRow4('project')" />
+			<input type="button" value="Delete Row" class="btn btn-primary" onclick="deleteRow('project')" />
+			<div>
+				<input type="submit" value="Save All" class="btn btn-primary"/>
+			</div>
+		</form>
+    {% endblock %}
