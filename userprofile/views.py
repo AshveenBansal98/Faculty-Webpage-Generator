@@ -13,10 +13,9 @@ user = get_user_model()
 # Create your views here.
 
 def Departmentwise_list(request , slug):
-    required_list = About_us.objects.filter(username__xyz__Department = slug)
+    required_list = About_us.objects.all()
     context={
-        'Departmentwise_list':required_list,
-        'Department':slug
+        'list':required_list,
     }
     return render(request, 'userprofile/Homepage.html', context)
 
@@ -106,16 +105,16 @@ def About_us_view(request , slug ):
         return redirect('userprofile:profile_about_us_create')
 
 def About_us_create(request):
-    if request.method == "POST":
-        form = about_us_form(request.POST)
-        if form.is_valid():
-            info = form.save(commit=False)
-            info.username = request.user
-            info.save()
-            return redirect('userprofile:profile_about_us', slug=request.user.username)
-    else:
-        form = about_us_form()
-        return render(request , 'userprofile/about_us_edit.html' , {'form':form})
+    # if request.method == "POST":
+    #     form = about_us_form(request.POST)
+    #     if form.is_valid():
+    #         info = form.save(commit=False)
+    #         info.username = request.user
+    #         info.save()
+    #         return redirect('dashboard')
+    # else:
+    form = about_us_form()
+    return render(request , 'userprofile/about_us_edit.html' , {'form':form})
 
 def About_us_edit(request , slug):
     about_us = About_us.objects.get(username__username = slug)
@@ -123,22 +122,21 @@ def About_us_edit(request , slug):
         form = about_us_form(request.POST, instance=about_us)
         if form.is_valid():
             form.save()
-            return redirect('userprofile:profile_about_us', slug)
+            return redirect('dashboard')
     else:
         form = about_us_form(instance=about_us)
         return render(request , 'userprofile/about_us_edit.html' , {'form':form})
 
 
-def StHome(request):
-    if(request.user.is_authenticated()):
+def StHome(request,username):
         context = RequestContext(request)
-        awards = Awards.objects.filter( username__username = request.user.username)
-        teaching = Teaching.objects.filter( username__username = request.user.username)
-        education = Education.objects.filter( username__username = request.user.username)
-        experience = Experience.objects.filter( username__username = request.user.username)
-        projecting = Projecting.objects.filter( username__username = request.user.username)
-        publications = Publications.objects.filter( username__username = request.user.username)
-        about_us = About_us.objects.filter( username__username = request.user.username)
+        awards = Awards.objects.filter( username__username = username)
+        teaching = Teaching.objects.filter( username__username = username)
+        education = Education.objects.filter( username__username = username)
+        experience = Experience.objects.filter( username__username = username)
+        projecting = Projecting.objects.filter( username__username = username)
+        publications = Publications.objects.filter( username__username = username)
+        about_us = About_us.objects.filter( username__username = username)
         context = {
           'awards': awards,
           'teaching': teaching,
@@ -149,5 +147,3 @@ def StHome(request):
           'publications': publications,
         }
         return render(request, 'userprofile/StHome.html', context)
-    else:
-        return redirect("/accounts/login")

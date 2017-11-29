@@ -19,8 +19,8 @@ from . import views
 
 urlpatterns = [
     url(r'^accounts/', include('accounts.urls')),
-    url(r"^$", views.HomePage.as_view(), name="home"),
-    url(r"^thanks/$", views.ThanksPage.as_view(), name="thanks"),
+    url(r"^$", views.Homepage, name="home"),
+    url(r"^thanks/$", views.Thankspage, name="thanks"),
     url(r"^test/", views.TestPage.as_view(), name="test"),
     url(r"^accounts/", include("django.contrib.auth.urls")),
     url(r"^profile/" , include('userprofile.urls')),

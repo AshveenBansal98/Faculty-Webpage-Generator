@@ -21,6 +21,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'zcy_p$^124cemm1mj((bd5d5zdf#4jy-jece%0-$kx^=2$a9&j'
+GOOGLE_RECAPTCHA_SECRET_KEY = '6LfQ3DoUAAAAAIVEk2ZtsRkBShk-1cJbDCdK5jHg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

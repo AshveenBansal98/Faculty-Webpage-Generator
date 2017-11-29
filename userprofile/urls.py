@@ -15,5 +15,5 @@ urlpatterns = [
     url(r'^(?P<slug>[\w.@+-]+)/about_us$', views.About_us_view ,name='profile_about_us'),
     url(r'^profile_about_us$', views.About_us_create ,name='profile_about_us_create'),
     url(r'^(?P<slug>[\w.@+-]+)/about_us/edit$', views.About_us_edit ,name='profile_about_us_edit'),
-    url(r'^StHome/', views.StHome, name="StHome"),
+    url(r'^StHome/(?P<username>[\w.@+-]+)', views.StHome, name="StHome"),
 ]

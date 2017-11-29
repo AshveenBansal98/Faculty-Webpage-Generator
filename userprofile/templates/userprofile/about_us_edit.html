@@ -1,16 +1,16 @@
-{% extends "profile_base.html" %}
+{% extends "base2.html" %}
 
 {% load bootstrap3 %}
 
 
 {% block content %}
-<div class="jumbotron" style="width:40%">
+<div style="width:80%">
     <h3>Personal Details</h3>
     <form method="POST">
         {% csrf_token %}
 
         {% bootstrap_form form %}
-        <input type="submit" value="Save" class="btn btn-default">
+        <input type="submit" value="Save" class="btn btn-primary">
     </form>
 </div>
 {% endblock %}

@@ -1,5 +1,81 @@
 {% extends "base.html" %}
-
 {% block content %}
-<h1>visit again<h1>
+
+<h1>Indian Institute Of Technology Guwahati</h1>
+{% for required_object in list  %}
+<div class="tab-content no-border padding-24">
+  <div id="home" class="tab-pane in active">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 center">
+        <span class="profile-picture">
+          <img class="editable img-responsive" alt=" Avatar" id="avatar2" src="{{required_object.Image}}">
+        </span>
+
+        <div class="space space-4"></div>
+      </div><!-- /.col -->
+
+      <div class="col-xs-12 col-sm-9">
+        <div style="width:30%">
+          <h4 class="blue" align="center">
+            <span class="middle"><a href="/profile/StHome/{{required_object.username}}">{{required_object.Name}}</a></span>
+          </h4>
+        </div>
+
+        <div class="profile-user-info">
+          <div class="profile-info-row">
+            <div class="profile-info-name"> Post </div>
+
+            <div class="profile-info-value">
+              <span>{{required_object.Departmental_post}}</span>
+            </div>
+          </div>
+
+          <div class="profile-info-row">
+            <div class="profile-info-name"> Department </div>
+
+            <div class="profile-info-value">
+              <span>{{required_object.Department}}</span>
+            </div>
+          </div>
+
+          <div class="profile-info-row">
+            <div class="profile-info-name"> Room </div>
+
+            <div class="profile-info-value">
+              <span>{{required_object.Room_no}}</span>
+            </div>
+          </div>
+
+          <div class="profile-info-row">
+            <div class="profile-info-name"> Phone </div>
+
+            <div class="profile-info-value">
+              <span>{{required_object.Phone}}</span>
+            </div>
+          </div>
+
+          <div class="profile-info-row">
+            <div class="profile-info-name"> Email </div>
+
+            <div class="profile-info-value">
+              <span>{{required_object.Email}}</span>
+            </div>
+          </div>
+
+          <div class="profile-info-row">
+            <div class="profile-info-name"> Research Interest </div>
+
+            <div class="profile-info-value">
+              <span>{{required_object.ResearchInterest}}</span>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="space-20"></div>
+  </div>
+    <hr>
+
+{% endfor %}
+
 {% endblock %}

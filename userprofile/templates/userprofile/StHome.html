@@ -10,24 +10,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Easy Resume a Personal Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title> 
+<title>Home</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Easy Resume Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+<meta name="keywords" content="Easy Resume Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="{% static 'application/x-javascript' %}"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Custom Theme files -->
 <link href="{% static 'css/bootstrap.css' %}" type="text/css" rel="stylesheet" media="all">
-<link href="{% static 'css/style1.css' %}" type="text/css" rel="stylesheet" media="all"> 
-<link rel="stylesheet" href="{% static 'css/lightbox.css' %}"> 
+<link href="{% static 'css/style1.css' %}" type="text/css" rel="stylesheet" media="all">
+<link rel="stylesheet" href="{% static 'css/lightbox.css' %}">
 <!-- //Custom Theme files -->
 <!-- js -->
-<script src="{% static 'js/jquery-2.2.3.min.js' %}"></script> 
+<script src="{% static 'js/jquery-2.2.3.min.js' %}"></script>
 <!-- //js -->
 <!-- web-fonts -->
 <link href='//fonts.googleapis.com/css?family=Text+Me+One' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
-<!-- //web-fonts --> 
+<!-- //web-fonts -->
 </head>
 <body>
 	<!-- top-nav -->
@@ -41,25 +41,26 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<div class="menu">
-					<ul class="nav navbar"> 
-						<li><a href="StHome.html" class="w3ls-hover"><span data-letters="Home">Home</span></a></li>
+					<ul class="nav navbar">
+						<!-- <li><a href="#" class="w3ls-hover"><span data-letters="Home">Home</span></a></li> -->
 						<li><a href="#" data-toggle="modal" data-target="#about" class="w3ls-hover"><span data-letters="About">About </span></a></li>
 						<li><a href="#" data-toggle="modal" data-target="#skill" class="w3ls-hover"><span data-letters="Teaching">Teaching</span></a></li>
 						<li><a href="#" data-toggle="modal" data-target="#experience" class="w3ls-hover"><span data-letters="Experience">Experience </span></a></li>
 						<li><a href="#" data-toggle="modal" data-target="#awards" class="w3ls-hover"><span data-letters="Awards">Awards </span></a></li>
 						<li><a href="#" data-toggle="modal" data-target="#education" class="w3ls-hover"><span data-letters="Education">Education </span></a></li>
+						<li><a href="#" data-toggle="modal" data-target="#publications" class="w3ls-hover"><span data-letters="Publications">Publications</span></a></li>
 						<li><a href="#" data-toggle="modal" data-target="#projects" class="w3ls-hover"><span data-letters="Projects">Projects</span></a></li>
-						<li><a href="#" data-toggle="modal" data-target="#contact" class="w3ls-hover"><span data-letters="Contact">Contact </span></a></li> 
-						<li><a class="w3ls-icon" href="#"><span class="glyphicon glyphicon-save"></span></a></li> 
+						<li><a href="#" data-toggle="modal" data-target="#contact" class="w3ls-hover"><span data-letters="Contact">Contact </span></a></li>
+						<!-- <li><a class="w3ls-icon" href="#"><span class="glyphicon glyphicon-save"></span></a></li> -->
 					</ul>
 					<div class="clearfix"> </div>
 				</div>
 			</div>
 		</div>
-	</div>	
+	</div>
 	<!-- //top-nav -->
-	
-	<!-- banner --> 
+
+	<!-- banner -->
 	<!-- <div class="video" data-vide-bg="{% static 'video/cv' %}">   -->
 		<div class="container">
 			<div class="banner-text agileinfo-text">
@@ -67,23 +68,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<h1>{{i.Name}}</h1>
 					<h6>{{i.Departmental_post}} , {{i.Department}} at {{i.Institute}}</h6>
 				{% endfor %}
-			</div>  
-		</div>	
+			</div>
+		</div>
 	<!-- </div>	 -->
 	<script src="{% static 'js/jquery.vide.min.js' %}"></script>
-	<!-- //banner --> 
+	<!-- //banner -->
 	<!-- modal-about -->
 	<div class="modal fade modal-about" id="about" tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document">
-			<div class="modal-content"> 
+			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title">ABOUT ME</h4>
 				</div>
 				<div class="modal-body modal-spa">
-					<div class="about"> 
+					<div class="about">
 						<div class="col-md-4 about-left ">
-							<img src="https://media.licdn.com/media/p/2/000/01d/35c/092c758.jpg" class="img-responsive" alt=""/>
+							{% for i in about_us %}
+								<img src="{{ i.Image }}" class="img-responsive" alt=""/>
+							{% endfor %}
 						</div>
 						<div class="col-md-8 about-right wthree">
 							{% for i in about_us %}
@@ -131,16 +134,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										{% endfor %}
 									</ul>
 								</li>
-							</ul> 
-						</div> 
-						<div class="clearfix"> </div> 
-						<div class="about-text agileits-w3layouts"> 
+							</ul>
+						</div>
+						<div class="clearfix"> </div>
+						<div class="about-text agileits-w3layouts">
 							{% for i in about_us %}
 								<p>Hello everyone. I am {{i.Name}} currently working as {{i.Departmental_post}} in the department of {{i.Department}} at institute {{i.Institute}} . My reasearch interests are {{i.ResearchInterest}} . If you think your research interest match me you can contact me for interns.</p>
 							{% endfor %}
 						</div>
 					</div>
-				</div> 
+				</div>
 			</div>
 		</div>
 	</div>
@@ -148,7 +151,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- modal-skills -->
 	<div class="modal fade modal-skills" id="skill" tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document">
-			<div class="modal-content"> 
+			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title">Courses</h4>
@@ -166,10 +169,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<p> {{i.Course}} in {{i.Institute}} during {{i.Duration}} </p>
 								</div>
 								<div class="clearfix"> </div>
-							</div> 
+							</div>
 						{% endfor %}
 					</div>
-				</div> 
+				</div>
 			</div>
 		</div>
 	</div>
@@ -177,13 +180,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- modal-experience -->
 	<div class="modal fade modal-experience" id="experience" tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document">
-			<div class="modal-content"> 
+			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title">My Experience</h4>
 				</div>
 				<div class="modal-body modal-spa">
-					<div class="experience w3-agileits-info">  
+					<div class="experience w3-agileits-info">
 						{% for i in experience %}
 							<div class="experience-grids">
 							<div class="experience-left">
@@ -195,23 +198,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<p>Served as {{ i.Designation }} in company {{ i.Company }} during {{i.Duration}}.</p>
 							</div>
 							<div class="clearfix"> </div>
-						</div> 
+						</div>
 						{% endfor %}
 					</div>
-				</div> 
+				</div>
 			</div>
 		</div>
 	</div>
 	<!-- //modal-experience -->
 	<div class="modal fade modal-experience" id="awards" tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document">
-			<div class="modal-content"> 
+			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title">My Awards</h4>
 				</div>
 				<div class="modal-body modal-spa">
-					<div class="experience w3-agileits-info">  
+					<div class="experience w3-agileits-info">
 						{% for i in awards %}
 							<div class="experience-grids">
 							<div class="experience-left">
@@ -223,17 +226,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<p>{{i.Description}}</p>
 							</div>
 							<div class="clearfix"> </div>
-						</div> 
+						</div>
 						{% endfor %}
 					</div>
-				</div> 
+				</div>
 			</div>
 		</div>
 	</div>
 	<!-- modal-education -->
 	<div class="modal fade modal-experience" id="education" tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document">
-			<div class="modal-content"> 
+			<div class="modal-content">
 				<div class="modal-header w3layouts">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title">My Qualification</h4>
@@ -251,24 +254,53 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<p> Did {{i.Program}} in {{i.Branch}} from {{i.Institute}} during {{i.Duration}}</p>
 							</div>
 							<div class="clearfix"> </div>
-						</div> 
+						</div>
 						{% endfor %}
 					</div>
-				</div> 
+				</div>
 			</div>
 		</div>
 	</div>
 	<!-- //modal-education -->
 	<!-- modal-gallery -->
-	<div class="modal fade modal-gallery" id="projects" tabindex="-1" role="dialog">
+	<div class="modal fade modal-gallery" id="publications" tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document">
-			<div class="modal-content"> 
+			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title">My Projects</h4> 
+					<h4 class="modal-title">My Publications</h4>
 				</div>
 				<div class="modal-body modal-spa">
-					<div class="gallery"> 
+					<div class="gallery">
+						{% for i in publications %}
+							<div class="experience-grids">
+							<div class="experience-left">
+								<h3>{{i.Year}} </h3>
+								<h5> {{i.Citations}} </h5>
+							</div>
+							<div class="experience-right">
+								<h4><a href="{{i.URL}}">{{i.Title}} </a></h4>
+								<p>Authors: {{i.Abstract}}</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //modal-gallery -->
+	<!-- modal-gallery -->
+	<div class="modal fade modal-gallery" id="projects" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">My Projects</h4>
+				</div>
+				<div class="modal-body modal-spa">
+					<div class="gallery">
 						{% for i in projecting %}
 							<div class="experience-grids">
 							<div class="experience-left">
@@ -279,10 +311,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<h4> {{i.Details}}</h4>
 							</div>
 							<div class="clearfix"> </div>
-						</div> 
+						</div>
 						{% endfor %}
 					</div>
-				</div> 
+				</div>
 			</div>
 		</div>
 	</div>
@@ -290,13 +322,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- modal-contact -->
 	<div class="modal fade modal-contact" id="contact" tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document">
-			<div class="modal-content"> 
+			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title">Get In Touch</h4>
 				</div>
 				<div class="modal-body modal-spa">
-					<div class="contact"> 
+					<div class="contact">
 						<div class="contact-w3lsrow">
 							<div class="col-md-6 contact-left w3-agileits">
 								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.9503398796587!2d-73.9940307!3d40.719109700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a27e2f24131%3A0x64ffc98d24069f02!2sCANADA!5e0!3m2!1sen!2sin!4v1441710758555" allowfullscreen></iframe>
@@ -309,10 +341,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										<span></span>
 									</div>
 									<div class="styled-input">
-										<input type="text" name="Email" required=""> 
+										<input type="text" name="Email" required="">
 										<label>Email</label>
 										<span></span>
-									</div> 
+									</div>
 									<div class="styled-input">
 										<input type="text" name="Subject" required="">
 										<label>Subject</label>
@@ -322,27 +354,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										<textarea name="Message" required=""></textarea>
 										<label>Message</label>
 										<span></span>
-									</div>	 
+									</div>
 									<input type="submit" value="SEND">
 								</form>
 							</div>
 							<div class="clearfix"> </div>
-						</div>  
+						</div>
 					</div>
-				</div> 
+				</div>
 			</div>
 		</div>
 	</div>
-	<!-- //modal-contact --> 
-	
+	<!-- //modal-contact -->
+
 	<!-- footer -->
 	<div class="footer">
 		<div class="container">
-			<p>© 2016 Easy Resume. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+			<p>IIT Guwahati</p>
 		</div>
 	</div>
-	<!-- //footer --> 
-	
+	<!-- //footer -->
+
 	<!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

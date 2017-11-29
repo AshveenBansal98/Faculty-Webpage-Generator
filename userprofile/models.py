@@ -17,6 +17,10 @@ class About_us(models.Model):
     Address = models.CharField(max_length=200)
     ResearchInterest = models.CharField(max_length=200)
     LinkedinURL = models.CharField(max_length=200)
+    path = models.CharField(max_length=200)
+    scholar = models.CharField(max_length=400)
+    Image = models.CharField(max_length=400)
+    sync = models.CharField(max_length=200)
 
     def __unicode__(self):
         return self.username

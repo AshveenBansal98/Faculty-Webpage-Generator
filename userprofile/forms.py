@@ -25,10 +25,14 @@ class about_us_form(forms.ModelForm):
     Email = forms.CharField(max_length=30 , required=True )
     Address = forms.CharField(max_length=50 , required=True)
     ResearchInterest = forms.CharField(max_length=80 , required=True)
-    LinkedinURL = forms.CharField(max_length=80 , required=True)
+    LinkedinURL = forms.CharField(max_length=80 , required=False)
+    path = forms.CharField(max_length=80 , required=False)
+    scholar = forms.CharField(max_length=80 , required=False)
+    Image = forms.CharField(max_length=80 , required=False)
+    sync = forms.CharField(max_length=80 , required=False , help_text="Enter No(case-sensitive) if you don't want to sync. By default sync is on.")
     class Meta:
         model = About_us
-        fields = ('Name','Department', 'Institute' , 'Departmental_post' , 'Room_no' , 'Phone' , 'Email' , 'Address'  , 'ResearchInterest' , 'LinkedinURL')
+        fields = ('Name','Department', 'Institute' , 'Departmental_post' , 'Room_no' , 'Phone' , 'Email' , 'Address'  , 'ResearchInterest' , 'LinkedinURL' , 'path', 'scholar','Image','sync')
 
 class projecting_add(forms.ModelForm):
     Topic = forms.CharField(max_length=200, required=True)
